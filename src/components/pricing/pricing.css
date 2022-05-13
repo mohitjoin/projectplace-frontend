@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+}
+.pricing-main-container{
+    width: 100%;
+    background: #F4F6FC;
+    padding: 24px;
+}
+.pricing-main-div{
+    width: 100%;
+    max-width: 1440px;
+    min-width: 500px;
+    margin: auto;
+}
+.pricing-heading{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 48px;
+line-height: 64px;
+/* identical to box height, or 133% */
+
+
+/* Dark blue */
+text-align: center;
+
+color: #282938;
+}
+.pricing-cards-containers{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px;
+}
+
+
+

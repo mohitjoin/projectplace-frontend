@@ -1,0 +1,54 @@
+// import { height, width } from '@mui/system';
+import React, { useState, useEffect } from 'react'
+import ReactLoading from 'react-loading';
+import './projectarea.css'
+import Alljsonproject from './Alljsonproject'
+import ProjectCard from './ProjectCard';
+export default function ProjectsArea(props) {
+    const [loadProjects, setloadProjects] = useState("false")
+
+    useEffect(() => {
+        setTimeout(() => setloadProjects((pre) => {
+            return "true";
+        }), 3000)
+    }, [props.searchedTextIs])
+    return (
+    
+    <div className = 'project-area-container' > 
+    {
+            loadProjects === "false" && < div > 
+            <ReactLoading
+            type = { "spinningBubbles" }
+            color = { "#1C1E53" }
+            height = { '8%' }
+            width = { '10%' }
+            className = 'loading-while-searching' />
+            </div>
+        }
+
+        {
+            // this will be fetched from api in future
+            loadProjects === "true" && <div className = 'all-projects-card-container' >
+
+                {
+                    Alljsonproject.map((proj, index) => {
+
+                        return <div >
+
+                            <div >
+                                
+                                < ProjectCard projCard = { proj }/>
+                            
+                            
+                            </div >
+
+                        </div>
+                    })
+                }
+
+            </div>
+        }
+
+        </div>
+    )
+}

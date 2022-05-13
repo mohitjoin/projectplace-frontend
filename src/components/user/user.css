@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+}
+
+.user-profile-area-div{
+    min-height: 600px;
+    background: #F4F6FC;
+    padding: 24px;
+}
+.user-profile-main-container{
+    background: #FFFFFF;
+    width: 90%;
+    margin: auto;
+     max-width: 1440px;
+    padding: 24px;
+}
+.username-image-logout-div,.user-image-and-name{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 24px;
+}
+.user-profile-image{
+    width: 70%;
+    max-width: 100px;
+}
+
+.user-profile-username{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        color: #282938;
+}
+.user-logout-and-add-project{
+     
+    position: relative;
+    float: right;
+    margin: 10px;
+ 
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.buttons-div{
+   width: 50%;
+}
+.about-user-div{
+    padding:12px;
+}
+.all-project-of-a-user-container{
+    width: 100%;
+    padding: 24px;
+}
+.project-area-for-each-user{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+     
+}
+
+@media screen and (max-width:992px) {
+    .username-image-logout-div,.user-image-and-name{
+        display: flex;
+        flex-direction: column;
+    }
+    .user-profile-image{
+        width: 40%;
+    }
+}
+

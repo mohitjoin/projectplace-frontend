@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.what-studentsay-main-container {
+    width: 100%;
+    min-height: 300px;
+    background: #ececec;
+    /* opacity: 0.5; */
+    backdrop-filter: blur(2);
+}
+
+.what-student-say-main {
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.what-stud-say-left {
+    width: 40%;
+    padding: 40px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 56px;
+    color: #282938;
+}
+
+.what-stud-say-right {
+    width: 60%;
+    padding: 20px;
+}
+
+.person-photo-and-position {
+    display: flex;
+    flex-direction: row;
+    /* padding: 10px; */
+}
+
+.demo-person-image {
+    box-shadow: 0px 15px 22px rgba(163, 160, 160, 0.25);
+    border-radius: 50%;
+}
+
+.person-name {
+    padding-left: 10px;
+}
+
+@media screen and (max-width:992px) {
+    .what-student-say-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .what-stud-say-left {
+        width: 100%;
+        padding: 40px;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 38px;
+        line-height: 56px;
+        color: #282938;
+        text-align: center;
+    }
+    .what-stud-say-right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+    .person-photo-and-position {
+        margin-left: 40%;
+    }
+}

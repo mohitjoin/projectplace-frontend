@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.showcase-container {
+    width: 100%;
+    background: #F4F6FC;
+}
+
+.showcase-container-main {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.showcase-container-main-left {
+    width: 40%;
+}
+
+.showcase-container-main-right {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.showcase-container-main-left-heading {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 64px;
+    color: #282938;
+    padding: 30px 30px;
+}
+
+.showcase-container-main-left-small {
+    font-family: Poppins;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 34px;
+    color: #282938;
+    padding: 10px 30px;
+}
+
+.showcase-container-main-left-small-link {
+    font-family: Poppins;
+    font-style: normal;
+    font-size: 22px;
+    color: #2405F2;
+    padding: 10px 30px;
+}
+
+.showcase-link-to-all-projects {
+    text-decoration: none;
+}
+
+.show-comp-container {
+    width: 45%;
+    min-height: 250px;
+    min-width: 300px;
+    background: #FFFFFF;
+    box-shadow: 0px 15px 22px rgba(218, 218, 218, 0.25);
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.show-comp-container-heading {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 48px;
+    color: #282938;
+}
+
+.show-comp-container-small {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #282938;
+    opacity: 0.7;
+}
+
+.show-comp-container-image {
+    padding: 10px;
+}
+
+.show-comp-container-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #5239FA;
+    color: white;
+    font-size: 24px;
+    padding-left: 17px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width:992px) {
+    .showcase-container-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .showcase-container-main-left {
+        width: 100%;
+    }
+    .showcase-container-main-right {
+        width: 100%;
+    }
+}

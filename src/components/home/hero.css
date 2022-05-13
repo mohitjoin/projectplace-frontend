@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-container {
+    width: 100%;
+    min-height: 600px;
+    background: #1C1E53;
+}
+
+.hero-container-main {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.hero-container-main-left {
+    width: 50%;
+}
+
+.hero-container-main-right {
+    padding-top: 30px;
+    width: 50%;
+}
+
+.hero-container-main-right>img {
+    height: 100%;
+    width: 100%;
+}
+
+.hero-container-main-left-heading {
+    font-size: 44px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 54px;
+    line-height: 74px;
+    color: #FFFFFF;
+    padding: 20px 30px;
+}
+
+.yellow-text-span {
+    color: #FCD980;
+}
+
+.some-small-text-below-heading {
+    color: white;
+    font-size: 16px;
+    padding-left: 30px;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+.complete-yellow-button {
+    width: 230px;
+    height: 64px;
+    background: #FCD980;
+    border-radius: 41px;
+    font-size: 22px;
+    border: 0px;
+}
+
+.complete-yellow-button:hover {
+    cursor: pointer;
+}
+
+.stroke-yellow-button {
+    width: 230px;
+    height: 64px;
+    background: #1C1E53;
+    border: 4px solid #FCD980;
+    border-radius: 41px;
+    color: white;
+    font-size: 22px;
+}
+
+.stroke-yellow-button:hover {
+    cursor: pointer;
+}
+
+.complete-yellow-button-link {
+    margin-left: 30px;
+}
+
+.stroke-yellow-button-link {
+    margin-left: 30px;
+}
+
+@media screen and (max-width:992px) {
+    .hero-container-main-left {
+        width: 100%;
+        text-align: center;
+    }
+    .hero-container-main-right {
+        display: none;
+    }
+    .some-small-text-below-heading {
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        padding: 0px;
+    }
+    .complete-yellow-button-link {
+        margin: auto;
+    }
+    .stroke-yellow-button-link {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .complete-yellow-button-link {
+        margin-bottom: 10px;
+    }
+    .stroke-yellow-button-link {
+        margin-bottom: 10px;
+    }
+}
