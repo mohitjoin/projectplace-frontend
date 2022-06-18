@@ -6,11 +6,12 @@ import Footer from './../home/Footer';
 import './user.css'
 import demouser from '../assets/userassets/userDemoImage.png'
 import { FaLifeRing } from "react-icons/fa";
-import { BsPencilSquare } from "react-icons/bs";
+// import { BsPencilSquare } from "react-icons/bs";
 import Button from '@mui/material/Button'
 import ReactTooltip from "react-tooltip";
 // demo imports
-import AllProjectOfUser from '../findprojects/Alljsonproject'
+import Axios from 'axios'
+// import AllProjectOfUser from '../findprojects/Alljsonproject'
 import ProjectCard from '../findprojects/ProjectCard';
 import { Link } from "react-router-dom";
 
@@ -18,7 +19,39 @@ export default function User() {
     const { username } = useParams()
     const [isLogin, setisLoginu] = useState("false")
     const datassi = sessionStorage.getItem('hasLogin');
+    const usData = sessionStorage.getItem('UserName');
     const [userUrl, setuserUrl] = useState("");
+    const [AllProjectOfUser, setAllProjectOfUser] = useState([]);
+   
+
+    const handleLogoutUser=()=>{
+        setisLoginu((pre)=>{
+            return false;
+        })
+        sessionStorage.clear()
+    }
+
+    async function getAllProjectFromDb(){  
+
+        const ProjectsAllDb= await Axios.get(`http://localhost:7000/userproject/${username}`);
+     
+        //console.log(datas.data);
+    
+        const ProjectsAllDbData=ProjectsAllDb.data;
+    
+        
+        //  console.log(ProjectsAllDbData)
+
+        setAllProjectOfUser((pre)=>{
+            return ProjectsAllDbData;
+        })
+    
+    
+     }
+       useEffect(()=>{
+        getAllProjectFromDb();
+       },[])
+
 
     useEffect(() => {
         if (datassi === null) {
@@ -56,18 +89,20 @@ export default function User() {
                         <img className='user-profile-image' src = { demouser }   alt = "User  pic" />
                         </div> 
                         <div className='user-profile-username'> { username } 
-                        <FaLifeRing data-tip data-for="premium-tooltip" style={{color:'#FFCE31'}}/> 
+                        <span className='spacing-span'></span>
+                        <FaLifeRing sx={{padding:'20px',marginLeft:'10px'}} data-tip data-for="premium-tooltip" style={{color:'#FFCE31'}}/> 
                         <ReactTooltip id="premium-tooltip" place="right" effect="solid">
                            Premium User 👑
                         </ReactTooltip>
                         <div></div> 
-                        10 Projects  <BsPencilSquare/>
+                         {AllProjectOfUser.length} Projects 
+                          {/* <BsPencilSquare/> */}
                         </div>
                    </div>
                    <div className='user-logout-and-add-project'>
                         <div className='buttons-div'>
 
-                        <Link to = "/addproject"
+                      {usData!==username?'': <Link to = "/addproject"
                         style={{
                             textDecoration:'none'
                         }}
@@ -83,18 +118,28 @@ export default function User() {
                             
                             }} >Add Project</Button>
                             </Link>
-                        </div>
+
+                            } 
+                        </div> 
+                        
+                        
 
                         <div className='buttons-div'>
                         <Button 
                         style={{
-                            background:'rgb(255 1 1)',
+                            background:'rgb(120 130 27)',
                             color:'white',
                             fontSize:'1rem',
                             fontFamily: 'Poppins',
                             padding:'12px',
-                            fontWeight:'800'
-                            }} >Log Out</Button>
+                            fontWeight:'800',
+                            margin:'auto',
+                            marginRight:'0px'
+                            }} 
+                            
+                            onClick={handleLogoutUser}
+                            
+                            >Log Out</Button>
                         </div>
                    </div>
                 </div>
@@ -113,7 +158,8 @@ export default function User() {
                    <h5>Projects</h5>
                   <div className='project-area-for-each-user'>
 
-                       {
+              {AllProjectOfUser.length === 0?'No Projects Available For this User':
+                        
                            AllProjectOfUser.map((project,index)=>{
                                return (<> <ProjectCard projCard = { project }/></>)
                            })

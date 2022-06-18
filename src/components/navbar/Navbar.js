@@ -19,7 +19,7 @@ export default function Navbar(props) {
     const [show, setshow] = useState('dis-none')
 
     const [loginuname, setloginuname] = useState('')
-
+    const LoginedUserName= sessionStorage.getItem('UserName');
 
     useEffect(() => {
 
@@ -70,16 +70,13 @@ export default function Navbar(props) {
 
             / >} {
 
-            show !== 'dis-none' && <
-            FaTimes style = {
+            show !== 'dis-none' && <FaTimes style = {
                 {
                     fontSize: '30px'
 
                 }
             }
-            onClick = { handleShow }
-
-            / >
+            onClick = { handleShow }/>
 
 
 
@@ -91,7 +88,7 @@ export default function Navbar(props) {
 
         </div>
 
-        <div className = 'links-div' >
+        <div className = 'links-div'>
         <Link to = "/"
         style = {
             {
@@ -147,7 +144,7 @@ export default function Navbar(props) {
                         marginLeft: '20px'
                     }
                 } >
-                Username </Link>
+                 {LoginedUserName} </Link>
         }
 
         </div >
@@ -223,7 +220,9 @@ export default function Navbar(props) {
                 } >
                 Login </Link>  </>
 
-        } {
+        }
+        
+         {
             props.iamLogin === "true" && 
             <Link to = { "/" + loginuname }
             style = {
@@ -236,7 +235,7 @@ export default function Navbar(props) {
                         margin: 'auto'
                     }
                 } >
-                Username </Link> 
+                 {loginuname} </Link> 
         }
 
 

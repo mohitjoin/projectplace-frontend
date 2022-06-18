@@ -9,6 +9,8 @@ import demouser from '../assets/userassets/userDemoImage.png'
 import { BsPencilSquare } from "react-icons/bs";
 import { BiUpvote } from "react-icons/bi";
 import Comments from '../comments/Comments';
+import Axios from 'axios'
+
 export default function Project(props) {
 
     let { id } = useParams();
@@ -16,6 +18,9 @@ export default function Project(props) {
     const datassi = sessionStorage.getItem('hasLogin');
     const [userUrl, setuserUrl] = useState("");
     const [techUsed, settechUsed] = useState(['MongoDB','React','MongoDB','React','FireBase']);
+    const [projectDetails,setprojectDetails]=useState({});
+
+ 
 
     useEffect(() => {
         if (datassi === null) {
@@ -24,7 +29,43 @@ export default function Project(props) {
         if (datassi !== null)
             setisLoginu(datassi)
 
+            // console.log(props);
+
     }, [datassi])
+
+  async function getProjectDetailsFromDB(){
+
+    const resultProject= await Axios.get(`http://localhost:7000/project/${id}`);
+
+    //   console.log(resultProject.data)
+
+      const mainProject=resultProject.data[0];
+
+      setprojectDetails( (pre)=> ({...mainProject}))
+    //   console.log(projectDetails)
+
+      var tacks=mainProject.techUsed;
+
+    //   console.log(tacks)
+    settechUsed((pre)=>{
+        const tArray=tacks.split(',');
+        // console.log(tArray);
+        return tArray;
+      })
+
+  }
+
+      useState(()=>{
+         getProjectDetailsFromDB();
+         
+      },[])
+
+      useState(()=>{
+        console.log(projectDetails)
+     },[projectDetails])
+
+
+
     if (datassi === null) {
 
         return (
@@ -53,10 +94,11 @@ export default function Project(props) {
                      <img className='user-profile-image' src = { demouser }   alt = "User  pic" />
                        </div>
                          
-                       user{ " " + id }
+                        { projectDetails.userName }
                         
                       <br></br>
-                        10 projects
+                        {/* 10 projects */}
+                        Project ID - {projectDetails.projectId}
                   </div>
                   <div className='edit-project-and-upvote'>
                        <div >
@@ -72,12 +114,9 @@ export default function Project(props) {
                   </div>
               </div>
               <div className='project-name-and-info-div'>
-                  <div className='project-name-div'>Project Name</div>
+                  <div className='project-name-div'>{projectDetails.projectName}</div>
                   <div>
-                      Here is about project Here is about project Here is about project Here is about project Here is about project Here is about project Here is about project
-                      Here is about project Here Here is about project Here Here is about project Here Here is about project Here Here is about project Here Here is about project Here Here is about project Here 
-
-
+                       {projectDetails.aboutProject}
                   </div>
             
 
@@ -88,15 +127,15 @@ export default function Project(props) {
                     techUsed.map((tech,index)=>{
                         return (<>
                         
-                              <span className='tech-class-button'>{tech}</span>
+                              <div key={index+100} className='tech-class-button'>{tech}</div>
                         
                         </>)
                     })
                 }
                <div></div>
-               <div className='links-div'>
-                   <a href='https://github.com/' target="_blank">See live</a>
-                   <a href='https://github.com/' target="_blank">Show me the code</a>
+               <div className='links-div-projects' style={{padding:'20px'}}>
+                   <a href={projectDetails.liveLink} target="_blank">See live</a>
+                   <a href={projectDetails.codeLink} target="_blank">Show me the code</a>
 
                </div>
                   

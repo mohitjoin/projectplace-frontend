@@ -34,6 +34,7 @@
         font-size: 24px;
         line-height: 36px;
         color: #282938;
+        min-width: 300px !important;
 }
 .user-logout-and-add-project{
      
@@ -61,7 +62,10 @@
     margin: auto;
      
 }
-
+.spacing-span{
+    width: 10px !important;
+    margin-left: 20px;
+}
 @media screen and (max-width:992px) {
     .username-image-logout-div,.user-image-and-name{
         display: flex;

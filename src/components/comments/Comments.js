@@ -4,7 +4,7 @@ export default function Comments(props){
     return (<>
     
      
-    {props.forProjId}
+    {/* {props.forProjId} */}
 
     <div className='main-comments-container'>
 

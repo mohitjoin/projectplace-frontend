@@ -2,12 +2,17 @@
 import React, { useState, useEffect } from 'react'
 import ReactLoading from 'react-loading';
 import './projectarea.css'
-import Alljsonproject from './Alljsonproject'
+// import Alljsonproject from './Alljsonproject'
 import ProjectCard from './ProjectCard';
 export default function ProjectsArea(props) {
     const [loadProjects, setloadProjects] = useState("false")
+    const [Alljsonproject, setAlljsonproject] = useState([])
 
     useEffect(() => {
+        
+        setAlljsonproject((pre)=>{
+            return props.requiredProjects;
+        })
         setTimeout(() => setloadProjects((pre) => {
             return "true";
         }), 3000)
@@ -33,14 +38,14 @@ export default function ProjectsArea(props) {
                 {
                     Alljsonproject.map((proj, index) => {
 
-                        return <div >
+                        return <div key={index+1} >
 
-                            <div >
+                            <div>
                                 
                                 < ProjectCard projCard = { proj }/>
                             
                             
-                            </div >
+                            </div>
 
                         </div>
                     })

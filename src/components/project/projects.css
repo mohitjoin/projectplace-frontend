@@ -31,13 +31,13 @@
      
 }
 .user-details-and-edit{
-    min-width: 350px;
+    max-width: 350px;
     padding: 24px;
-    width: 70%;
+    width: 100%;
 }
 .demo-user-image{
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
 }
 .user-details-and-edit{
     display: flex;
@@ -49,15 +49,19 @@
     line-height: 32px;
 }
 .edit-project-and-upvote{
-    padding: 22px  12px;
+    padding: 12px  12px;
     text-align: center;
     font-size: 32px;
     line-height: 32px;
+    margin: auto;
+    margin-right: 0px;
+    min-width: 100px;
      
 }
 .user-details-and-upvote-div-container{
     display: flex;
     flex-direction: row;
+    width: 48%;
      
 }
 .upvote-div{
@@ -83,10 +87,10 @@ line-height: 36px;
 color: #282938;
 }
 .tech-class-button{
-    padding: 8px;
+    padding: 12px 12px;
     background: #5C5E84;
     border-radius: 4px;
-    margin: 20px 10px;
+    margin:  10px;
     color: white;
     font-family: 'Poppins';
     font-style: normal;
@@ -96,12 +100,14 @@ color: #282938;
 }
 .project-skills-link{
     margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
 }
-.links-div{
+.links-div-projects{
     display: flex;
     flex-direction: row;
 }
-.links-div>a{
+.links-div-projects>a{
     margin-right: 20px;
     text-decoration: none;
     font-family: 'Poppins';

@@ -4,16 +4,40 @@ import Navbar from '../navbar/Navbar'
 import Footer from './../home/Footer';
 import ProjectsArea from './ProjectsArea';
 import { FaSearch } from "react-icons/fa";
+import Axios from 'axios'
 // import TextField from '@mui/material/TextField';
 export default function FindProjects() {
     const [isLogin, setisLogin] = useState("false")
     const [searched, setsearched] = useState("false")
     const [searchedText, setsearchedText] = useState()
+    const [allRequiredProjects, setallRequiredProjects] = useState()
 
     const datassi = sessionStorage.getItem('hasLogin');
 
-    useEffect(() => {
+    
+ async function getAllProjectFromDb(){
 
+    const ProjectsAllDb= await Axios.get('http://localhost:7000/findprojects');
+ 
+    //console.log(datas.data);
+
+    const ProjectsAllDbData=ProjectsAllDb.data;
+
+    
+     console.log(ProjectsAllDbData)
+    //  console.log("ProjectsAllDbData")
+    setallRequiredProjects((pre)=>{
+        return ProjectsAllDbData;
+    })
+
+
+ }
+   useEffect(()=>{
+    getAllProjectFromDb();
+   },[])
+
+    useEffect(() => {
+       
         if (datassi != null)
             setisLogin(datassi)
 
@@ -22,6 +46,11 @@ export default function FindProjects() {
         // setTimeout(() => setsearched((pre) => {
         //     return "true";
         // }), 3000)
+
+        
+        getAllProjectFromDb();
+
+
         setsearched("true");
     }
 
@@ -36,8 +65,8 @@ export default function FindProjects() {
         Find projects which relates you best... </div>
         
         <div className = 'search-project-div' >
-        <div> <
-        FaSearch style = {
+        <div> 
+            <FaSearch style = {
             {
                 fontSize: '80px',
                 padding: '4px',
@@ -46,7 +75,7 @@ export default function FindProjects() {
                 paddingTop: '18px'
             }
         }
-        / >
+        />
         </div>
         <div className = 'input-to-search' >
 
@@ -69,10 +98,10 @@ export default function FindProjects() {
         </div>
 
         {
-            searched === "false" ? <
-                div className = 'Searched-projects' >
+            searched === "false" ? 
+                <div className = 'Searched-projects' >
                 Type about project(Name, Tech used, Owener ) and hit enter to view projects 
-                </div> : <ProjectsArea searchedTextIs={searchedText}/ >
+                </div> : <ProjectsArea searchedTextIs={searchedText} requiredProjects={allRequiredProjects}/>
         }
 
 
