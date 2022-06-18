@@ -17,6 +17,14 @@ export default function ProjectsArea(props) {
             return "true";
         }), 3000)
     }, [props.searchedTextIs])
+
+
+    if(Alljsonproject.length===0){
+        return <>
+         <div style={{textAlign:'center',fontSize:'1.5rem',marginTop:'12px'}} >No project Available</div>
+        </>
+    }
+
     return (
     
     <div className = 'project-area-container' > 
@@ -34,6 +42,8 @@ export default function ProjectsArea(props) {
         {
             // this will be fetched from api in future
             loadProjects === "true" && <div className = 'all-projects-card-container' >
+
+                
 
                 {
                     Alljsonproject.map((proj, index) => {

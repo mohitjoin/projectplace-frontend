@@ -10,7 +10,7 @@ export default function FindProjects() {
     const [isLogin, setisLogin] = useState("false")
     const [searched, setsearched] = useState("false")
     const [searchedText, setsearchedText] = useState()
-    const [allRequiredProjects, setallRequiredProjects] = useState()
+    const [allRequiredProjects, setallRequiredProjects] = useState([])
 
     const datassi = sessionStorage.getItem('hasLogin');
 
@@ -98,11 +98,12 @@ export default function FindProjects() {
         </div>
 
         {
-            searched === "false" ? 
+            (searched === "false") ? 
                 <div className = 'Searched-projects' >
                 Type about project(Name, Tech used, Owener ) and hit enter to view projects 
                 </div> : <ProjectsArea searchedTextIs={searchedText} requiredProjects={allRequiredProjects}/>
         }
+         
 
 
         </div>
