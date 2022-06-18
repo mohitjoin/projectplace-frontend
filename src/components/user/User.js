@@ -33,7 +33,7 @@ export default function User() {
 
     async function getAllProjectFromDb(){  
 
-        const ProjectsAllDb= await Axios.get(`http://localhost:7000/userproject/${username}`);
+        const ProjectsAllDb= await Axios.get(`https://projectplacebackend.herokuapp.com/userproject/${username}`);
      
         //console.log(datas.data);
     

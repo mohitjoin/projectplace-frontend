@@ -87,7 +87,7 @@ export default function Addprojects(){
           reqObject['UserPanLink']=projectAnotherLink;
           reqObject['cUser']=currentUser;
 
-        const res=await Axios.post('http://localhost:7000/addproject',reqObject)
+        const res=await Axios.post('https://projectplacebackend.herokuapp.com/addproject',reqObject)
                 .catch((err)=>{
                     alert("Try to have a unique project ID ⚡!!!");
                 })

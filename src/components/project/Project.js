@@ -35,7 +35,7 @@ export default function Project(props) {
 
   async function getProjectDetailsFromDB(){
 
-    const resultProject= await Axios.get(`http://localhost:7000/project/${id}`);
+    const resultProject= await Axios.get(`https://projectplacebackend.herokuapp.com/project/${id}`);
 
     //   console.log(resultProject.data)
 

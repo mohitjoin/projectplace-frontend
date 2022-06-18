@@ -17,7 +17,7 @@ export default function FindProjects() {
     
  async function getAllProjectFromDb(){
 
-    const ProjectsAllDb= await Axios.get('http://localhost:7000/findprojects');
+    const ProjectsAllDb= await Axios.get('https://projectplacebackend.herokuapp.com/findprojects');
  
     //console.log(datas.data);
 
