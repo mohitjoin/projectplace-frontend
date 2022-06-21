@@ -156,7 +156,7 @@ export default function User() {
                    <h5>Projects</h5>
                   <div className='project-area-for-each-user'>
 
-              {AllProjectOfUser.length === 0?'No Projects Available For this User':
+              {  typeof(AllProjectOfUser) !== typeof([]) || AllProjectOfUser.length === 0?'No Projects Available For this User':
                         
                            AllProjectOfUser.map((project,index)=>{
                                return (<> <ProjectCard key={index+100} projCard = { project }/></>)
