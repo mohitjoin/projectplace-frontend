@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+ 
 import { Navigate } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import './addproject.css'
@@ -87,7 +88,10 @@ export default function Addprojects(){
           reqObject['UserPanLink']=projectAnotherLink;
           reqObject['cUser']=currentUser;
 
-        const res=await Axios.post('https://projectplacebackend.herokuapp.com/addproject',reqObject)
+        const res=await Axios.post(`${process.env.REACT_APP_HOST}addproject`,reqObject)
+                    .then(()=>{
+                        alert("Your project is uploaded and you can see in your profile");
+                    })
                 .catch((err)=>{
                     alert("Try to have a unique project ID ⚡!!!");
                 })

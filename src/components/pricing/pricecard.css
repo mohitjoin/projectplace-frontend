@@ -40,6 +40,9 @@ text-align: center;
 .space-in{
     margin-left: 10px;
 }
+.main-container-pricecard:hover{
+    cursor: pointer;
+}
 
 @media screen and (max-width:992px) {
     .main-container-pricecard{

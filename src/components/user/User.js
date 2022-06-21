@@ -33,7 +33,7 @@ export default function User() {
 
     async function getAllProjectFromDb(){  
 
-        const ProjectsAllDb= await Axios.get(`https://projectplacebackend.herokuapp.com/userproject/${username}`);
+        const ProjectsAllDb= await Axios.get(`${process.env.REACT_APP_HOST}userproject/${username}`);
      
         //console.log(datas.data);
     
@@ -146,11 +146,9 @@ export default function User() {
 
                 <div className='about-user-div'>
 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna 
-                aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing 
-                elit, sed do eiusmod tempor incididunt ut labore et dolore 
-                magna aliqua.
+                    Here is your Bio.<div></div>
+
+                Hey, User i am working on the feature which will help you to edit the user profile or Bio please bear with me.
                 </div>
 
 
@@ -161,7 +159,7 @@ export default function User() {
               {AllProjectOfUser.length === 0?'No Projects Available For this User':
                         
                            AllProjectOfUser.map((project,index)=>{
-                               return (<> <ProjectCard projCard = { project }/></>)
+                               return (<> <ProjectCard key={index+100} projCard = { project }/></>)
                            })
                        }
 

@@ -23,7 +23,7 @@ const prices = [{
 },{
     name:'Premium',
     color:'#5C5E84',
-     price:'100',
+     price:'1000',
      textColor:'#FFC04A',
      benefit1:'View all free projects',
      benefit1yes:'yes',

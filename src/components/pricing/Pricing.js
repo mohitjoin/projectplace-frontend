@@ -48,7 +48,7 @@ export default function Pricing() {
 
              {
                  AllPrices.map((ap,index)=>{
-                     return(<><Pricecard  price={ap}/></>)
+                     return(<><Pricecard key={index+100}  price={ap}/></>)
                  })
              }
 
